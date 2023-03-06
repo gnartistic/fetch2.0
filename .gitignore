@@ -99,8 +99,10 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
-.package-lock.json
-.DS_Store
 
 # TernJS port file
 .tern-port
+
+.package-lock.json
+.client/package-lock.json
+.DS_Store
