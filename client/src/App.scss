@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+$primary-color: #fefefe;
+
+@import 'animate.css';
+
+@import '~loaders.css/src/animations/ball-pulse-sync.scss';
+
+@font-face {
+  font-family: 'Bold';
+  src: url('./assets/fonts/GothamRoundedBold_21016.ttf') format("truetype");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'Medium';
+  src: url('./assets/fonts/GothamRoundedMedium_21022.ttf') format("truetype");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'Light';
+  src: url('./assets/fonts/GothamRoundedLight_21020.ttf') format("truetype");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+input,
+textarea {
+  font-family: 'GothamRoundedLight';
+}
+
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  animation: fadeOut 1s 1s;
+  animation-fill-mode: forwards;
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: linear-gradient(90deg, #637dec 0%, #7068ce 40%, #7e55af 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  width: 100%;
+  will-change: contents;
+  min-height: 566px;
+  position: absolute;
+  opacity: 0;
+  padding-top: 5%;
+  padding: 0 auto;
+  z-index: 1;
+  overflow-y: hidden;
+  transform-style: preserve-3d;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1.5s;
+}
+
+
+@media screen and (max-width: 600px) {
+
 }
