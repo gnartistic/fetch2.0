@@ -49,20 +49,22 @@ function SignUpInfo ( { nextStep, handleFormData, prevStep, values } )
                         defaultValue={values.email}
                         onChange={handleFormData( "email" )}
                     />
+                </div>
                     {error || errorEmail ? (
-                        <p className="errorText">
-                            Please enter a username and valid email.
-                        </p>
+                        <div className='error-container'>
+                            <p className="errorText">
+                                Please enter a username and valid email.
+                            </p>
+                        </div>
                     ) : (
                         ""
                     )}
-                </div>
                 <div className="footer">
                     <button className="next" type="submit">
-                        <FontAwesomeIcon icon={faCircleArrowRight} size="lg" color="#3cccff" />
+                        <FontAwesomeIcon icon={faCircleArrowRight} size="lg" color="#fefefe" />
                     </button>
                     <button className="prev" onClick={prevStep}>
-                        <FontAwesomeIcon icon={faCircleArrowLeft} size="lg" color="#3cccff" />
+                        <FontAwesomeIcon icon={faCircleArrowLeft} size="lg" color="#fefefe" />
                     </button>
                 </div>
             </form>

@@ -174,6 +174,11 @@ $space: 1rem;
                         color: #444444;
                     }
                 }
+
+                                input:-webkit-autofill,
+                                input:-webkit-autofill:focus {
+                                    transition: background-color 600000s 0s, color 600000s 0s;
+                                }
             }
 
             .signIn {
@@ -206,6 +211,7 @@ $space: 1rem;
             border: none;
             border-radius: 25px;
             text-transform: uppercase;
+            text-align: center;
             background: linear-gradient(90deg, #637dec 0%, #7068ce 20%, #7e55af 100%);
             transition: transform .2s;
 
@@ -278,6 +284,9 @@ $space: 1rem;
                 input[type='email'],
                 input[type='password'] {
                     width: 60vw !important;
+                    &::placeholder {
+                            font-size: 11px !important;
+                        }
                 }
 
                 .input-box {

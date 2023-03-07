@@ -28,6 +28,7 @@ const Login = () =>
 
 	// password validation state
 	const [ validPassword, setValidPassword ] = useState( '' );
+	const [ validEmail, setValidEmail ] = useState( '' );
 
 	// function to handle input change. contains email validation and password verification
 	const handleChange = ( e ) =>
@@ -36,8 +37,10 @@ const Login = () =>
 			const isEmailValid = validateEmail( e.target.value );
 
 			if( !isEmailValid ) {
+				setValidEmail( '' );
 				setEmailErrMsg( 'Not a valid email' )
 			} else {
+				setValidEmail( 'true' );
 				setEmailErrMsg( '' );
 			}
 		}
@@ -110,7 +113,7 @@ const Login = () =>
                                         onChange={handleChange}
                                         onBlur={handleChange}
                                         defaultValue={password}
-                                        placeholder='Must be 4 characters' />
+                                        placeholder='Must be at least 4 characters' />
                                 </div>
                                 {/* password error message */}
                                 {pwdErrMsg && (
@@ -120,8 +123,8 @@ const Login = () =>
 
                             {/* login button, disabled if inputs do not pass all verification */}
                             <button
-                                data-testid="button"
-                                disabled={!password || !email || !validPassword}
+                                data-test-id="button"
+                                disabled={!password || !email || !validPassword || !validEmail}
                                 type='submit'
                                 className='signIn'>
                                 Login
@@ -133,9 +136,9 @@ const Login = () =>
                             )}
                         </div>
 						{/* link to signup component */}
-						<button className="createAccount">
+						<div className="createAccount">
 							<Link to="/Signup">Create Account</Link>
-						</button>
+						</div>
 
 						<p>
 							By tapping "Create Account" or "Login", you agree to our Terms
@@ -144,7 +147,7 @@ const Login = () =>
 					</form>
 				</div>
 			</div>
-			{/* the loader inbetween screens */}
+			{/* the loader in between screens */}
 			<Loader type="ball-pulse-sync" />
 		</>
 	);

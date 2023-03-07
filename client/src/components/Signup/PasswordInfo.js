@@ -5,14 +5,11 @@ import validator from "validator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth'
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
 
 function PasswordInfo ( { nextStep, handleFormData, prevStep, values } )
 {
     //creating error state for validation
     const [ errorPassword, setErrorPassword ] = useState( false );
-    const [ addUser, { error } ] = useMutation( ADD_USER );
 
     const [ passReqMessage, setPassReqMessage ] = useState( false );
 
@@ -26,7 +23,7 @@ function PasswordInfo ( { nextStep, handleFormData, prevStep, values } )
         if( validator.isEmpty( values.password ) ) {
             setErrorPassword( true );
         } else if( validator.isStrongPassword( values.password, [] ) ) {
-            handleFormSubmit();
+            // handleFormSubmit();
             console.log( values )
             
             } else {
@@ -34,19 +31,19 @@ function PasswordInfo ( { nextStep, handleFormData, prevStep, values } )
             }
     };
 
-    const handleFormSubmit = async ( event ) =>
-    {
-        try {
-            const { data } = await addUser( {
-                variables: { ...values },
-            } );
+    // const handleFormSubmit = async ( event ) =>
+    // {
+    //     try {
+    //         const { data } = await addUser( {
+    //             variables: { ...values },
+    //         } );
             
-                Auth.login( data.addUser.token );
+    //             Auth.login( data.addUser.token );
             
-        } catch( e ) {
-            console.error( e );
-        }
-    };
+    //     } catch( e ) {
+    //         console.error( e );
+    //     }
+    // };
 
     return (
         <div className="form-container">
@@ -66,21 +63,22 @@ function PasswordInfo ( { nextStep, handleFormData, prevStep, values } )
                         defaultValue={values.password}
                         onChange={handleFormData( "password" )}
                     />
+                    {/* {error && <p className="errorText" style={{textAlign:'center'}}>An account already exists with your chosen username or email.<br/> Please try again or <Link to='/login'>login</Link></p>} */}
+                </div>
+
                     {errorPassword ? (
-                        <div>
-                            <p className="errorText" style={{ bottom:'-20px', position:'relative' }}>Please enter a valid password.</p>
+                        <div className='error-container'>
+                            <p className="errorText">Please enter a valid password.</p>
                             </div>
                     ) : (
                         ""
                     )}
-                    {error && <p className="errorText" style={{textAlign:'center'}}>An account already exists with your chosen username or email.<br/> Please try again or <Link to='/login'>login</Link></p>}
-                </div>
                 <div className="footer">
-                    <button className="next" type="submit">
-                        <FontAwesomeIcon icon={faCircleCheck} size="lg" color="#3cccff" />
+                    <button className="next" type="submit" onClick={handleFormData}>
+                        <FontAwesomeIcon icon={faCircleCheck} size="lg" color="#fefefe" />
                     </button>
                     <button className="prev" onClick={prevStep}>
-                        <FontAwesomeIcon icon={faCircleArrowLeft} size="lg" color="#3cccff" />
+                        <FontAwesomeIcon icon={faCircleArrowLeft} size="lg" color="#fefefe" />
                     </button>
                 </div>
             </form>

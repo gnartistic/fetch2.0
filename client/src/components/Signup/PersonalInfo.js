@@ -6,7 +6,7 @@ import { faCircleArrowRight} from '@fortawesome/free-solid-svg-icons';
 function PersonalInfo ( { nextStep, handleFormData, values } )
 {
 
-    // creating functional component ans getting props from app.js and destucturing them
+    // creating functional component ans getting props from app.js and destructuring them
 
     //creating error state for validation
     const [ error, setError ] = useState( false );
@@ -49,17 +49,19 @@ function PersonalInfo ( { nextStep, handleFormData, values } )
                         defaultValue={values.lastName}
                         onChange={handleFormData( "lastName" )}
                     />
-                    {error ? (
+                </div>
+                {error ? (
+                        <div className='error-container'>
                         <p className="errorText">
                             Please provide your first and last name.
                         </p>
+                            </div>
                     ) : (
                         ""
                     )}
-                </div>
                 <div className="footer">
                     <button className="next" type="submit">
-                        <FontAwesomeIcon icon={faCircleArrowRight} size="lg" color="#3cccff" />
+                        <FontAwesomeIcon icon={faCircleArrowRight} size="lg" color="#fefefe" />
                     </button>
                 </div>
             </form>

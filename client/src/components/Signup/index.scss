@@ -6,25 +6,34 @@
     justify-content: center;
     align-items: center;
 
+    .error-container {
+        background-color: #fefefe43;
+        border-radius: 10px;
+        padding: .5vh;
+        width: 50vw;
+        position: fixed;
+        left: 25vw;
     .errorText {
-        font-family: Arial, Helvetica, sans-serif;
-        color: rgb(198, 33, 33);
-        font-size: 12px;
+        font-family: 'Medium';
+        color: #f20d17;
+        font-size: 16px;
         animation: headShake .5s forwards;
         line-height: 1.5vw;
+        text-align: center;
 
         a {
             color: #fefefe;
             font-weight: bold;
         }
     }
+}
 
     .passwordText {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Medium";
         color: #fefefe;
         font-size: 12px;
         position: fixed;
-        animation: fadeInDown 1.2s forwards;
+        animation: fadeInDown 1s forwards;
         top: 300px;
     }
 
@@ -38,6 +47,7 @@
     height: 70%;
     display: flex;
     flex-direction: column;
+
 }
 
 .form-container .header {
@@ -47,9 +57,9 @@
 
     h1 {
         font-size: 3.5vw;
-        font-family: 'Roboto';
+        font-family: 'Medium';
         letter-spacing: .5vw;
-        color: #fffffd;
+        color: #fefefe;
         animation: fadeInUp 1.2s forwards;
     }
 }
@@ -124,14 +134,14 @@
     margin-top: 35px;
     width: 80vw;
     height: 10px;
-    background-color: #1f3047;
+    background-color: #5d3996;
     margin-bottom: 50px;
 }
 
 .progressbar div {
     width: 33.3%;
     height: 90%;
-    background-color: #fffffd;
+    background-color: #fefefe;
 }
 
 .other-info-container {
@@ -153,21 +163,30 @@
 
 input {
     border: none;
-    border-radius: 10px;
-    background-color: #1f3047;
-    color: #fffffd;
+    border-bottom: 2px solid #fefefe;
+    background-color: transparent;
+    color: #fefefe;
 
     &::placeholder {
-        padding-left: 3vw;
-        font-family: Arial, Helvetica, sans-serif;
-        color: #fffffd;
+        padding: 1.8vh 1.8vh 1.8vh 0;
+        font-family: "Medium";
+        color: #fefefe;
         opacity: 0.6;
     }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
 input:focus {
-    border: 1px #fffffd;
-    padding-left: 3vw;
+    font-family: 'Medium';
+    background-color: transparent;
+    outline-color: transparent;
+    outline-style: hidden;
+    outline-width: 0;
+    color: #fefefe;
 }
 
 .confirm {
@@ -175,7 +194,7 @@ input:focus {
 
     h1 {
         letter-spacing: 0.1vw !important;
-        font-family: 'Roboto';
+        font-family: 'Medium';
         color: yellow;
         margin-top: -3vw;
     }
@@ -188,15 +207,15 @@ input:focus {
     h2 {
         width: 60vw;
         font-size: 18px;
-        font-family: 'Roboto';
-        color: #fffffd;
+        font-family: 'Medium';
+        color: #fefefe;
         text-align: center;
     }
 
     h4 {
         font-size: 13px;
-        font-family: 'Roboto';
-        color: #53b4fa;
+        font-family: 'Medium';
+        color: #fefefe;
         margin-top: 5vh;
     }
 
@@ -206,7 +225,7 @@ input:focus {
 .personal-info-container input,
 .other-info-container input {
     animation: fadeInUp 1.5s forwards;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Medium";
 }
 
 @media screen and (max-width: 600px) {
@@ -229,10 +248,14 @@ input:focus {
 
     .form {
 
+        .error-container {
+            position: fixed;
+            left: 10vw;
+            width: 80vw;
         .errorText {
-            font-family: Arial, Helvetica, sans-serif;
-            color: rgb(198, 33, 33);
-            font-size: 12px;
+            font-family: "Medium";
+            color: #f20d17;
+            font-size: 14px;
             animation: headShake .5s forwards;
             line-height: 1.5vw;
 
@@ -241,6 +264,7 @@ input:focus {
                 font-weight: bold;
             }
         }
+    }
 
         .passwordText {
             top: 200px;
@@ -250,22 +274,22 @@ input:focus {
     .confirm {
 
         h1 {
-            font-family: 'Roboto';
+            font-family: 'Medium';
             letter-spacing: .5vw;
-            color: #fffffd;
+            color: #fefefe;
         }
 
         h2 {
             width: 85vw;
-            font-family: 'Roboto';
+            font-family: 'Medium';
             letter-spacing: .5vw;
-            color: #fffffd;
+            color: #fefefe;
         }
 
         h4 {
-            font-family: 'Roboto';
+            font-family: 'Medium';
             letter-spacing: .5vw;
-            color: #fffffd;
+            color: #fefefe;
             margin-top: 5vh;
         }
 

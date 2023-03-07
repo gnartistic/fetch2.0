@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Loader from 'react-loaders'
 import SignUpInfo from './SignUpInfo'
 import PersonalInfo from './PersonalInfo'
 import PasswordInfo from './PasswordInfo'
@@ -58,7 +57,6 @@ const Signup = () =>
                             <PersonalInfo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
                         </div>
                     </div>
-                    <Loader type="ball-scale-ripple-multiple" />
                 </>
             );
         // case 2 to show stepTwo form passing nextStep, prevStep, and handleInputData as handleFormData method as prop and also formData as value to the fprm
@@ -75,7 +73,6 @@ const Signup = () =>
                             <SignUpInfo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
                         </div>
                     </div>
-                    <Loader type="ball-scale-ripple-multiple" />
                 </>
             );
         // Only formData is passed as prop to show the final value at form submit
@@ -92,13 +89,12 @@ const Signup = () =>
                             <PasswordInfo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
                         </div>
                     </div>
-                    <Loader type="ball-scale-ripple-multiple" />
                 </>
             );
         // default case to show nothing
         default:
             return (
-                <div className="App">
+                <div className='App'>
                 </div>
             );
     }
