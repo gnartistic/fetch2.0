@@ -110,7 +110,7 @@ const Login = () =>
                                         onChange={handleChange}
                                         onBlur={handleChange}
                                         defaultValue={password}
-                                        placeholder='********' />
+                                        placeholder='Must be 4 characters' />
                                 </div>
                                 {/* password error message */}
                                 {pwdErrMsg && (
@@ -138,7 +138,7 @@ const Login = () =>
 						</button>
 
 						<p>
-							By tapping "Create Account" or "Sign in", you agree to our Terms
+							By tapping "Create Account" or "Login", you agree to our Terms
 							of Service.
 						</p>
 					</form>
