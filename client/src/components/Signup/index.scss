@@ -6,35 +6,55 @@
     justify-content: center;
     align-items: center;
 
-    .error-container {
+    .error-container-alt {
         background-color: #fefefe43;
         border-radius: 10px;
-        padding: .5vh;
+        padding: 0vh;
         width: 50vw;
         position: fixed;
         left: 25vw;
-    .errorText {
-        font-family: 'Medium';
-        color: #f20d17;
-        font-size: 16px;
-        animation: headShake .5s forwards;
-        line-height: 1.5vw;
-        text-align: center;
+        bottom: 17vh;
 
-        a {
-            color: #fefefe;
-            font-weight: bold;
+        .errorText {
+            font-family: 'Medium';
+            color: #f20d17;
+            font-size: 16px;
+            animation: headShake .5s forwards;
+            line-height: 1vw;
+            text-align: center;
         }
     }
-}
+
+    .error-container {
+        background-color: #fefefe43;
+        border-radius: 10px;
+        padding: 0vh;
+        width: 50vw;
+        position: fixed;
+        left: 25vw;
+
+        .errorText {
+            font-family: 'Medium';
+            color: #f20d17;
+            font-size: 16px;
+            animation: headShake .5s forwards;
+            line-height: 1vw;
+            text-align: center;
+
+            a {
+                color: #fefefe;
+                font-weight: bold;
+            }
+        }
+    }
 
     .passwordText {
         font-family: "Medium";
         color: #fefefe;
         font-size: 12px;
         position: fixed;
-        animation: fadeInDown 1s forwards;
-        top: 300px;
+        animation: fadeIn .3s forwards;
+        top: 270px;
     }
 
     .password {
@@ -43,12 +63,82 @@
 }
 
 .form-container {
+    
     width: 100vw;
-    height: 70%;
+    height: auto;
     display: flex;
     flex-direction: column;
 
+    .input-container {
+        display: flex;
+        flex-direction: row;
+
+        .fa-check,
+        .fa-xmark {
+            position: sticky;
+            margin-right: -25px;
+            height: 3vh;
+            padding: 3.5vh 0 0 1.8vh;
+
+        }
+    }
+
+    .rules-list {
+        overflow: hidden;
+        height: 78vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .rules {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            align-items: left;
+
+            h1 {
+                    font-size: 3.5vw;
+                    font-family: 'Medium';
+                    letter-spacing: .5vw;
+                    color: #fefefe;
+                    margin-bottom: -2vh;
+                    animation: fadeInUp 1.2s forwards;
+                }
+
+            h2 {
+                font-size: 2vh;
+                font-family: 'Medium';
+                color: #fefefe;
+                margin-bottom: 10vh;
+                animation: fadeInUp 1.4s forwards;
+            }
+
+            .rules-container {
+                display: flex;
+                flex-direction: column;
+
+            animation: fadeInUp .8s forwards;
+
+                h3 {
+                    color: #fefefe;
+                    font-size: 16px;
+                    font-family: 'Medium';
+                    margin-bottom: -10px;
+                }
+
+                h4 {
+                    color: #fefefe;
+                    font-size: 14px;
+                    font-family: 'Medium';
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
 }
+
 
 .form-container .header {
     flex: 20%;
@@ -145,12 +235,18 @@
 }
 
 .other-info-container {
-    height: 400px;
+    height: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 18.2vh 0 34.8vh 0;
+    margin-top: 55px;
+
+    h1 {
+        margin-bottom: 110px;
+    }
 }
 
 .other-info-container input {
@@ -163,7 +259,7 @@
 
 input {
     border: none;
-    border-bottom: 2px solid #fefefe;
+    border-bottom: 2px solid #fefefe !important;
     background-color: transparent;
     color: #fefefe;
 
@@ -171,7 +267,7 @@ input {
         padding: 1.8vh 1.8vh 1.8vh 0;
         font-family: "Medium";
         color: #fefefe;
-        opacity: 0.6;
+        opacity: 0.3;
     }
 }
 
@@ -252,19 +348,20 @@ input:focus {
             position: fixed;
             left: 10vw;
             width: 80vw;
-        .errorText {
-            font-family: "Medium";
-            color: #f20d17;
-            font-size: 14px;
-            animation: headShake .5s forwards;
-            line-height: 1.5vw;
 
-            a {
-                color: #fefefe;
-                font-weight: bold;
+            .errorText {
+                font-family: "Medium";
+                color: #f20d17;
+                font-size: 14px;
+                animation: headShake .5s forwards;
+                line-height: 1.5vw;
+
+                a {
+                    color: #fefefe;
+                    font-weight: bold;
+                }
             }
         }
-    }
 
         .passwordText {
             top: 200px;

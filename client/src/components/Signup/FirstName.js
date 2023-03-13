@@ -1,13 +1,10 @@
 import validator from "validator";
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleArrowRight} from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowRight, faCircleArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
-function PersonalInfo ( { nextStep, handleFormData, values } )
+const FirstName = ({ nextStep, handleFormData, prevStep, values } ) =>
 {
-
-    // creating functional component ans getting props from app.js and destructuring them
-
     //creating error state for validation
     const [ error, setError ] = useState( false );
 
@@ -18,44 +15,35 @@ function PersonalInfo ( { nextStep, handleFormData, values } )
 
         // checking if value of first name and last name is empty show error else take to step 2
         if(
-            validator.isEmpty( values.firstName ) ||
-            validator.isEmpty( values.lastName )
+            validator.isEmpty( values.firstName )
         ) {
             setError( true );
         } else {
             nextStep();
         }
     };
-
-    return (
-
-        <div className="form-container">
+  return (
+    <div className="form-container">
             <form className="body" onSubmit={submitFormData}>
                 <div className="header">
-                    <h1>What's your name?</h1>
+                    <h1>My first name is</h1>
                 </div>
-                <div className="personal-info-container">
+                <div className="sign-up-container">
                     <input
-                        type="text"
+                        type=""
                         name="firstName"
                         placeholder="First Name"
                         defaultValue={values.firstName}
                         onChange={handleFormData( "firstName" )}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Last Name"
-                        name='lastName'
-                        defaultValue={values.lastName}
-                        onChange={handleFormData( "lastName" )}
+                        on
                     />
                 </div>
-                {error ? (
+                    {error ? (
                         <div className='error-container'>
-                        <p className="errorText">
-                            Please provide your first and last name.
-                        </p>
-                            </div>
+                            <p className="errorText">
+                                Please enter your name.
+                            </p>
+                        </div>
                     ) : (
                         ""
                     )}
@@ -63,10 +51,13 @@ function PersonalInfo ( { nextStep, handleFormData, values } )
                     <button className="next" type="submit">
                         <FontAwesomeIcon icon={faCircleArrowRight} size="lg" color="#fefefe" />
                     </button>
+                    <button className="prev" onClick={prevStep}>
+                        <FontAwesomeIcon icon={faCircleArrowLeft} size="lg" color="#fefefe" />
+                    </button>
                 </div>
             </form>
-        </div>
-    );
+        </div >
+  )
 }
 
-export default PersonalInfo;
+export default FirstName

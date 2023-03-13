@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import validator from "validator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowLeft, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import validator from "validator";
 
-
-function SignUpInfo ( { nextStep, handleFormData, prevStep, values } )
+const Email = ( { nextStep, handleFormData, prevStep, values } ) =>
 {
     //creating error state for validation
-    const [ error, setError ] = useState( false );
     const [ errorEmail, setErrorEmail ] = useState( false );
 
     // after form submit validating the form data using validator
@@ -16,8 +14,8 @@ function SignUpInfo ( { nextStep, handleFormData, prevStep, values } )
         e.preventDefault();
 
         // checking if value of first name and last name is empty show error else take to next step
-        if( validator.isEmpty( values.email ) || validator.isEmpty( values.username ) ) {
-            setError( true );
+        if( validator.isEmpty( values.email ) || validator.isEmpty( values.email) ) {
+            setErrorEmail( true );
         } else {
             if( validator.isEmail( values.email ) ) {
                 nextStep();
@@ -25,35 +23,31 @@ function SignUpInfo ( { nextStep, handleFormData, prevStep, values } )
                 setErrorEmail( true );
             }
         }
+        
+    }
 
-    };
+
 
     return (
         <div className="form-container">
             <form className="body" onSubmit={submitFormData}>
                 <div className="header">
-                    <h1>Enter a username and email.</h1>
+                    <h1>What's your Email?</h1>
                 </div>
                 <div className="sign-up-container">
-                    <input
-                        type="username"
-                        name="username"
-                        placeholder="Username"
-                        defaultValue={values.username}
-                        onChange={handleFormData( "username" )}
-                    />
                     <input
                         type="email"
                         name="email"
                         placeholder="Email"
                         defaultValue={values.email}
                         onChange={handleFormData( "email" )}
+                        on
                     />
                 </div>
-                    {error || errorEmail ? (
+                    {errorEmail ? (
                         <div className='error-container'>
                             <p className="errorText">
-                                Please enter a username and valid email.
+                                Please enter a valid email.
                             </p>
                         </div>
                     ) : (
@@ -69,7 +63,7 @@ function SignUpInfo ( { nextStep, handleFormData, prevStep, values } )
                 </div>
             </form>
         </div >
-    );
+    )
 }
 
-export default SignUpInfo;
+export default Email

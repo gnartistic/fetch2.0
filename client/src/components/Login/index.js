@@ -23,7 +23,7 @@ const Login = () =>
 
 	// validation error initial states
 	const [ emailErrMsg, setEmailErrMsg ] = useState( '' );
-	const [ serverErrMsg, setServerErrMsg ] = useState( '' );
+	// const [ serverErrMsg, setServerErrMsg ] = useState( '' );
 	const [ pwdErrMsg, setPwdErrMsg ] = useState( '' );
 
 	// password validation state
@@ -131,9 +131,9 @@ const Login = () =>
                             </button>
 
                             {/* server error message */}
-                            {serverErrMsg && (
+                            {/* {serverErrMsg && (
                                 <p className='error-text2'>{serverErrMsg}</p>
-                            )}
+                            )} */}
                         </div>
 						{/* link to signup component */}
 						<div className="createAccount">

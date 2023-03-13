@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Fetch from './components/Fetch';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Fetch />} />
           <Route path='/Login' element={<Login />} />
-          <Route path='/Signup' element={<Signup />}/>
+          <Route path='/Signup' element={<Signup />} />
+          <Route path='/Home' element={<Home/>}/>
         </Route>
       </Routes></>
   );

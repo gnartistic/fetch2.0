@@ -1,18 +1,36 @@
 import React, { useState } from 'react'
-import SignUpInfo from './SignUpInfo'
-import PersonalInfo from './PersonalInfo'
-import PasswordInfo from './PasswordInfo'
 import './index.scss'
+import Fetch from '../Fetch'
+
+// page components
+import Phone from './Phone';
+import Email from './Email';
+import Welcome from './WelcomePage';
+import DogName from './DogName';
+import DogHobby from './DogHobby';
+import FirstName from './FirstName';
+import Birthday from './Birthday';
+import Gender from './GenderIdentity';
+import Passions from './Passions';
+import Photo from './Photo';
+import Location from './Location';
+import Password from './PasswordInfo'
 
 const Signup = () =>
 {
     const [ step, setStep ] = useState( 1 );
     const [ formData, setFormData ] = useState( {
-        username:'',
         firstName: '',
-        lastName: '',
         email: '',
+        phone: '',
+        dogName: '',
+        dogHobby: '',
+        birthday: '',
+        gender: '',
+        passions: '',
         password: '',
+        location: '',
+        photo:'',
     } );
 
     // function for going to next step by increasing step state by 1
@@ -50,11 +68,11 @@ const Signup = () =>
                     <div id='signupForm' className="form">
                         <div className="progressbar">
                             <div
-                                style={{ width: "33.3%" }}
+                                style={{ width: "8.3%" }}
                             ></div>
                         </div>
                         <div className="form-container">
-                            <PersonalInfo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                            <Phone nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
                         </div>
                     </div>
                 </>
@@ -66,11 +84,11 @@ const Signup = () =>
                     <div id='signupForm' className="form">
                         <div className="progressbar">
                             <div
-                                style={{ width: "66.6%" }}
+                                style={{ width: "16.6%" }}
                             ></div>
                         </div>
                         <div className="form-container">
-                            <SignUpInfo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                            <Email nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
                         </div>
                     </div>
                 </>
@@ -82,20 +100,156 @@ const Signup = () =>
                     <div id='signupForm' className="form">
                         <div className="progressbar">
                             <div
-                                style={{ width: "100%" }}
+                                style={{ width: "24.9%" }}
                             ></div>
                         </div>
                         <div className="form-container">
-                            <PasswordInfo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                            <Welcome nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
                         </div>
                     </div>
                 </>
             );
+        case 4:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "33.2%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <DogName nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 5:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "41.4%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <DogHobby nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 6:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "49.7%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <FirstName nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 7:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "58%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <Birthday nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 8:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "66.3%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <Gender nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 9:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "74.6%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <Passions nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 10:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "82.9%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <Photo nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 11:
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "91.2%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <Location nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            );
+        case 12: 
+            return (
+                <>
+                    <div id='signupForm' className="form">
+                        <div className="progressbar">
+                            <div
+                                style={{ width: "100%" }}
+                            ></div>
+                        </div>
+                        <div className="form-container">
+                            <Password nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData} />
+                        </div>
+                    </div>
+                </>
+            )
         // default case to show nothing
         default:
             return (
-                <div className='App'>
-                </div>
+                <>
+                    <Fetch/>
+                </>
             );
     }
 }
